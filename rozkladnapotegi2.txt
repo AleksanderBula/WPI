@@ -1,0 +1,31 @@
+#include<stdio.h>
+
+int rozklad(int N, int max2)
+{
+    
+    int c = 0;
+    if (max2 >= 1)
+    {
+        if (N >= max2)
+        {
+           c += rozklad(N-max2, max2);
+        }
+        c += rozklad(N, max2/2);
+        return c;   
+    }
+    else
+    {
+        if (N == 0)
+           return 1;
+        else return 0;
+    }
+}
+
+int main (void)
+{
+    int c = rozklad (8, 8);
+    printf("%d\n", c);
+    
+    system("Pause");
+    return 0;
+}
